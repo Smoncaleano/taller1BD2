@@ -139,3 +139,12 @@ ON registro (fecha_registro);
 
 CREATE INDEX mascota_nombre_indx 
 ON mascota (nombre);
+
+CREATE INDEX ubicacion_localidad_indx 
+ON ubicación (localidad);
+
+CREATE INDEX mascota_especie_indx 
+ON mascota (id_especie);
+
+CREATE INDEX usuario_correo_indx 
+ON usuario (correo);
