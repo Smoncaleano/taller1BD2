@@ -82,3 +82,60 @@ CREATE TABLE documentos(
 	id_registro VARCHAR ( 20 ) references registro(id_registro ) NOT NULL
 
 );
+
+
+CREATE VIEW listarMascotasPropietarioV AS
+	SELECT 
+	mas.id_mascota,
+	mas.nombre,
+	mas.id_propietario,
+	mas.fecha_nacimiento,
+	mas.id_especie,
+	mas.tamaño,
+	mas.peligroso,
+	mas.fotografía,
+	mas.microchip
+	FROM mascota as mas
+	INNER JOIN usuarioDetalle AS usr
+	on usr.documento = mas.id_propietario
+	WHERE usr.tipo_usuario = '1';
+	
+/*
+SELECT * FROM listarMascotasPropietarioV as lista WHERE lista.id_propietario ='1212';
+*/
+
+CREATE INDEX usuariodetalle_id_indx 
+ON usuariodetalle (documento);
+
+CREATE INDEX tipoUsuario_id_indx 
+ON tipo_usuario (id_tipo_usuario);
+
+CREATE INDEX tipoDocumento_id_indx 
+ON tipo_documento (id_tipo_documento);
+
+CREATE INDEX ubicacion_id_indx 
+ON ubicación (id_ubicación);
+
+CREATE INDEX especie_id_indx 
+ON especie (id_especie);
+
+CREATE INDEX caso_id_indx 
+ON caso (id_caso);
+
+CREATE INDEX tipoVisita_id_indx 
+ON tipoVisita (id_tipo_visita);
+
+CREATE INDEX mascota_id_indx 
+ON mascota (id_mascota);
+
+CREATE INDEX registro_id_indx 
+ON registro (id_registro);
+
+CREATE INDEX documentos_id_indx 
+ON documentos (id_documentos);
+
+CREATE INDEX registro_fechaRegistro_indx 
+ON registro (fecha_registro);
+
+CREATE INDEX mascota_nombre_indx 
+ON mascota (nombre);
