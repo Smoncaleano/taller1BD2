@@ -63,8 +63,8 @@ CREATE TABLE mascota(
 	tamaño float NOT NULL,
 	peligroso VARCHAR ( 5 ) NOT NULL, 
 	fotografía VARCHAR ( 80 ), 
-	microchip BOOLEAN
-	
+	microchip BOOLEAN ,
+	sexo VARCHAR( 10 ) NULL
 );
 
 --Se crea tabla aprobacion_func
@@ -107,6 +107,24 @@ CREATE VIEW listarMascotasPropietarioV AS
 	INNER JOIN usuarioDetalle AS usr
 	on usr.documento = mas.id_propietario
 	WHERE usr.tipo_usuario = '1';
+
+--Vista de mascotas registradas para los funcionarios
+CREATE VIEW mascotasRegistradasFuncionario AS
+	SELECT
+	pet.nombre,
+	es.nombre AS Especie,
+	pet.sexo,
+	pet."tamaño",
+	pet.microchip,
+	tv.nombre AS tipo_visita
+	FROM mascota AS pet
+	INNER JOIN especie AS es
+	ON es.id_especie = pet.id_especie
+	INNER JOIN registro AS re
+	ON re.id_mascota = pet.id_mascota
+	INNER JOIN tipovisita AS tv
+	ON re.id_tipo_visita = tv.id_tipo_visita
+	WHERE re.id_tipo_visita = '1';
 	
 /*
 query de prueba para la vista
