@@ -43,4 +43,10 @@ Para poder verificar los respectivos scripts es necesario tener instalado en su 
 
 Una vez instalado se debe abrir PGAdmin4 y posteriormente crear una nueva base de datos, una vez creada por medio del menú tools se debe seleccionar la opción de Query tool y posteriormente abrir el archivo Script.sql, dicho archivo contiene la creación de tablas e Indexes necesarios para el correcto funcionamiento de la base de datos.
 
+## Por qué se crearon los indices?
 
+  Los indices se crearon para dar mayor velocidad a las respectivas consultas aumentando su optimización
+  
+## Por qué se crearon vistas?
+
+  Las vistas se generaron para crear mayor seguridad al acceso de la información y para cumplir con los respectivos requerimientos no funcionales
