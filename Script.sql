@@ -18,6 +18,7 @@ CREATE TABLE ubicación(
 	localidad VARCHAR ( 30 ) NOT NULL
 );
 
+
 --Se crea tabla especie
 CREATE TABLE especie (
 	id_especie VARCHAR ( 20 ) PRIMARY KEY,
