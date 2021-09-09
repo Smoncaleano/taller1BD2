@@ -10,7 +10,7 @@
 - PostgreSQL 13
 - PGAdmin 4
 
-##Estructura del repositorio
+## Estructura del repositorio
 
 El presente repositorio contiene los siguientes 4 archivos:
   - Script.sql : Contiene los scripts necesarios para crear la respectiva base de datos, se encuentra en la raíz del repositorio.
