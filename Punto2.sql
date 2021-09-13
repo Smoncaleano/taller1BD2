@@ -1,3 +1,7 @@
+/*
+Funcion que verifica si una mascota ya esta esterilizada o ya tiene microchip,
+si esto se cumple no deja hacer el registro de la visita
+*/
 CREATE OR REPLACE FUNCTION verificar_unicidad_fn()
 	RETURNS TRIGGER
 	LANGUAGE PLPGSQL
@@ -38,6 +42,7 @@ $$;
 
 DROP TRIGGER IF EXISTS verificar_unicidad_tr ON registro;
 
+--Trigger que ejecuta la funcion de verificacion antes de la insercion
 CREATE TRIGGER verificar_unicidad_tr
 	BEFORE INSERT
 	ON registro
