@@ -1,0 +1,40 @@
+--Tabla donde se registran las metas de instalación de microchips
+CREATE TABLE microchip_goals (
+	init_date DATE,
+	end_date DATE,
+	count_m int,
+	compliance varchar(5)
+);
+
+--Función que nos cuenta los microchips registrados la semana pasada, y nos crea un registro en la tabla microchips_goals
+CREATE OR REPLACE FUNCTION michochip_goals()
+RETURNS int
+language PLPGSQL
+AS $$
+DECLARE 
+	numero_r int;
+	semana_pasada timestamp; 
+	semana_fin timestamp;
+BEGIN 	
+	semana_pasada = date_trunc('week', CURRENT_TIMESTAMP - interval '1 week');
+	semana_fin = (date_trunc('week', semana_pasada::timestamp)+ '6 days'::interval)::date;
+	SELECT DISTINCT COUNT (*)
+	INTO numero_r
+	FROM registro
+	WHERE registro.fecha_registro >= semana_pasada and
+       registro.fecha_registro < date_trunc('week', CURRENT_TIMESTAMP);
+	RAISE NOTICE 'El numero de registros de la semana pasa es %', numero_r;
+	
+	IF EXISTS (select init_date from microchip_goals where init_date = semana_pasada) THEN
+		 UPDATE microchip_goals SET count_m=numero_r, compliance=  CONCAT(numero_r, '%') where init_date = semana_pasada;
+	ELSE 
+		INSERT INTO public.microchip_goals(
+	init_date, end_date, count_m, compliance)
+	VALUES (semana_pasada, semana_fin, numero_r, CONCAT(numero_r, '%'));
+	END IF;
+	
+RETURN numero_r;
+
+END;
+
+$$
