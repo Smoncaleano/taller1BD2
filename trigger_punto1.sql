@@ -42,7 +42,7 @@ END;
 $$;
 
 
-
+--elimina el trigger si ya existe
 DROP TRIGGER IF EXISTS verificar_evento_tr ON mascota;
 
 --Trigger que ejecuta la funcion de verificacion antes de la insercion, eliminación o actualización en la tabla mascota
