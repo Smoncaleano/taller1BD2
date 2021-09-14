@@ -1,10 +1,12 @@
 --Se crea tabla mascota_audit, donde se llevarán los registros de eventos en la tabla mascota
+DROP TABLE IF EXISTS mascota_audit;
+
 CREATE TABLE mascota_audit(
 	id_mascota int,
-	id_propietario VARCHAR ( 20 ) references usuarioDetalle(documento) NOT NULL,
+	nombre_propirtario VARCHAR(20) NOT NULL,
 	nombre VARCHAR ( 20 ) NOT NULL,
 	fecha_nacimiento DATE NOT NULL,
-	id_especie VARCHAR ( 20 )  references especie (id_especie) NOT NULL,
+	especie VARCHAR(20) NOT NULL,
 	tamaño float NOT NULL,
 	peligroso VARCHAR ( 5 ) NOT NULL, 
 	fotografía VARCHAR ( 80 ), 
