@@ -17,6 +17,12 @@ El presente repositorio contiene los siguientes 4 archivos:
   - Diagrama_BD.pdf: Contiene el modelo relacional de la base de datos.
   - Diccionaro.pdf: Almacena el diccionario de datos de la bd.
   - Evidencia_ejecucion_scripts.pdf : Almacena la evidencia del correcto funcionamiento de la base de datos. 
+  - Trigger_punto1.sql: Query del trigger del punto 1
+  - punto2.sql: Query del trigger del punto 2
+  - funcion_punto3.sql: Query de la funcion del punto 3
+  - Evidencias Ejecucion punto 1 taller 2.pdf: Evidencia de la ejecucion del correcto funcionamiento del punto 1
+  - Evidencias Ejecucion punto 2 taller 2.pdf: Evidencia de la ejecucion del correcto funcionamiento del punto 2
+  - Evidencias Ejecucion punto 3 taller 2.pdf: Evidencia de la ejecucion del correcto funcionamiento del punto 3
 
 ## Modelo de datos
 
