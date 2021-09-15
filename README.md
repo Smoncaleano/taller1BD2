@@ -1,4 +1,4 @@
-# taller1BD2
+# taller2BD2
 
 ## Integrantes:
 - Nicolás Ávila Ávila
@@ -36,6 +36,8 @@ A continuación se relacionan las tablas que se describen en el modelo relaciona
   - ubicacion: Ubicación geográfica del propietario incluyendo ciudad, barrio y localidad.
   - usuario: Usuario de acceso a la plataforma que contiene el correo y contraseña con el que los usuarios se autentican.
   - usuariodetalle: Información general de los usuarios.
+  - mascota_audit: Registro de audirotria de cuando se modifica, inserta o elimina en la tabla mascota.
+  - microchip_goals: metas de implantacion de microchip en mascotas.
 
 ## Orden de ejecución
 
@@ -50,3 +52,8 @@ Una vez instalado se debe abrir PGAdmin4 y posteriormente crear una nueva base d
 ## Por qué se crearon vistas?
 
   Las vistas se generaron para crear mayor seguridad al acceso de la información y para cumplir con los respectivos requerimientos no funcionales
+  
+## Triggers generados
+
+  - verificar_evento_tr: Trigger que ejecuta una funcion que registra los eventos en la tabla de mascota_audit
+  - verificar_unicidad_tr: Trigger que ejecuta la funcion que verifica si una mascota ya esta esterilizada o ya tiene microchip
