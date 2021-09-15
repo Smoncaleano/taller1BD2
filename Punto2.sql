@@ -17,7 +17,7 @@ BEGIN
 	FROM registro as r INNER JOIN
 	tipovisita as tv ON
 	r.id_tipo_visita = tv.id_tipo_visita
-	WHERE NEW.id_tipo_visita = '1';
+	WHERE NEW.id_tipo_visita = tv.id_tipo_visita;
 	
 	IF estrilizacion THEN
 		RAISE EXCEPTION 'La mascota ya esta esterilizada';
@@ -30,13 +30,14 @@ BEGIN
 	ON tv.id_tipo_visita = r.id_tipo_visita
 	INNER JOIN mascota AS m
 	ON m.id_mascota = r.id_mascota
-	WHERE NEW.id_tipo_visita = '2'
+	WHERE NEW.id_tipo_visita = tv.id_tipo_visita
 	OR m.microchip = true;
 	
 	IF microchip THEN
 		RAISE EXCEPTION 'La mascota ya tiene un microchip';
 	END IF;
 	
+	RETURN NEW;
 END;
 $$;
 
